@@ -18,12 +18,13 @@ import java.util.ArrayList;
 
 import sidespell.tech.finalsexam.R;
 import sidespell.tech.finalsexam.api.GenderApi;
+import sidespell.tech.finalsexam.utils.HttpUtils;
 
 public class PredictGenderFragment extends Fragment implements View.OnClickListener {
 
-    private EditText             mEtName;
-    private TextView             mTvGender;
-    private ListView             mListView;
+    private EditText mEtName;
+    private TextView mTvGender;
+    private ListView mListView;
     private FloatingActionButton mFabGetGender;
     private ArrayAdapter<String> mAdapter;
 
@@ -64,6 +65,7 @@ public class PredictGenderFragment extends Fragment implements View.OnClickListe
             mEtName.setError(getContext().getString(R.string.txt_enter_name));
         } else {
             mEtName.setError(null);
+            new GetGenderTask().execute(name);
         }
     }
 
@@ -82,9 +84,9 @@ public class PredictGenderFragment extends Fragment implements View.OnClickListe
                 throw new RuntimeException("There has to be at least one parameter passed and should " +
                         "be a name");
             }
-
             // TODO: Implement the logic to get the gender given a specified name
-            return null;
+            mName = params[0];
+            return GenderApi.getGender(params[0]);
         }
 
         @Override

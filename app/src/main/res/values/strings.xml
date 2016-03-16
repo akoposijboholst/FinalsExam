@@ -6,4 +6,5 @@
     <string name="title_activity_transactions_fragment">Fragment Transactions</string>
     <string name="text_analyzing">Analyzing &#8230;</string>
     <string name="txt_enter_name">Please enter a name</string>
+    <string name="predict_gender_title">Predict Gender Activtiy</string>
 </resources>

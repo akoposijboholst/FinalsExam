@@ -3,11 +3,13 @@ package sidespell.tech.finalsexam.fragments;
 import android.content.Context;
 import android.os.Bundle;
 import android.support.v4.app.ListFragment;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.ListView;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -56,9 +58,23 @@ public class MainFragment extends ListFragment {
                 android.R.layout.simple_list_item_1, new ArrayList<>(Arrays.asList(topics)));
         setListAdapter(adapter);
 
+
+//        if (savedInstanceState != null) {
+//            // Restore last state for checked position.
+//            mCurCheckPosition = savedInstanceState.getInt("curChoice", 0);
+//        }
+//
+//        if (mDualPane) {
+//            Log.d("Boholst", "Danica lols");
+//            getListView().setChoiceMode(ListView.CHOICE_MODE_SINGLE);
+//        }else{
+//            Log.d("Boholst", "shit");
+//        }
+
         getListView().setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Log.d("Boholst", "You Pressed");
                 if (mOnTopicItemClickListener != null) {
                     mOnTopicItemClickListener.onItemClick(position);
                 }
